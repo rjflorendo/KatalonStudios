@@ -13,3 +13,12 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
+for(def row=1; row <= findTestData('Login/Login Successful').getRowNumbers(); row++ ){
+	WebUI.openBrowser('')
+	WebUI.navigateToUrl('http://192.168.4.5:4819/')
+	WebUI.setText(findTestObject('A. Login/txt_username'), findTestData('Login/Login Successful').getValue(1, 1))
+	WebUI.setText(findTestObject('A. Login/txt_password'), findTestData('Login/Login Successful').getValue(2, 1))
+	WebUI.click(findTestObject('A. Login/button_Login'))
+	WebUI.getText(findTestObject('Z.M Dashboard/div_Announcements'))
+	WebUI.closeBrowser()
+}

@@ -13,3 +13,15 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
+WebUI.openBrowser('http://192.168.4.5:4819/')
+
+WebUI.setText(findTestObject('A. Login/txt_username'), findTestData('Login/Login Invalid Password').getValue(1, 1))
+
+WebUI.setText(findTestObject('A. Login/txt_password'), findTestData('Login/Login Invalid Password').getValue(2, 1))
+
+WebUI.click(findTestObject('A. Login/button_Login'))
+
+WebUI.getText(findTestObject('A. Login/div_Invalid Password You have 3 attempts left'))
+
+WebUI.closeBrowser()
+
